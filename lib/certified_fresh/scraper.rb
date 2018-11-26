@@ -1,12 +1,15 @@
 class CertifiedFresh::Scraper
 
   def self.scrape_certified_fresh
-    html = open("https://www.rottentomatoes.com/")
+    html = open("https://www.imdb.com/search/name?birth_monthday=11-26&refine=birth_monthday&ref_=nv_cel_brn")
     doc = Nokogiri::HTML(html)
-    # redo this line doc.css(".pollContents").css(".answerWrapper").css(".js-tooltipTrigger").each do |book_element|
-      binding.pry
-
+    doc.css(".lister-list").css(".lister-item").css(".lister-item-header").each do |celebrity|
+      name = celebrity.text
+      celeb = CertifiedFresh::CelebBirthday.new(name)
+      celeb.save
     end
+    binding.pry
+
   end
 end
 

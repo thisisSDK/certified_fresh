@@ -1,0 +1,8 @@
+#!/usr/bin/env/ ruby
+
+require_relative "../lib/environment"
+
+CertifiedFresh::CLI.new.start
+
+#you might need to change the permissions here - check cernan's lecture
+#from 11/8 around 7m14s
