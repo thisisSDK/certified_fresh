@@ -1,7 +1,7 @@
 class CertifiedFresh::Scraper
 
   def self.scrape_certified_fresh
-    html = open("https://www.rottentomatoes.com/")
+    html = open("https://editorial.rottentomatoes.com/article/most-anticipated-2019-movies/")
     doc = Nokogiri::HTML(html)
     # redo this line doc.css(".pollContents").css(".answerWrapper").css(".js-tooltipTrigger").each do |book_element|
       binding.pry
